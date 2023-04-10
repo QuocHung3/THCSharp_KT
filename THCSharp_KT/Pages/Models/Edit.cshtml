@@ -1,0 +1,58 @@
+﻿@page
+@model THCSharp_KT.Pages.Models.Edit1Model
+
+<br />
+<h2>Edit Student</h2>
+
+@if (Model.errorMessage.Length > 0)
+{
+    <div class="alert alert-warning alert-dismissible fade show">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<form method="POST">
+    <input type="hidden" name="congnhan" value="@Model.cnInfo.congnhan" />
+    <div class="row mb-3">
+        <lable class="col-sm-3 col-form-label">congnhan</lable>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="congnhan" value="@Model.cnInfo.congnhan" disabled="disabled" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <lable class="col-sm-3 col-form-label">calam</lable>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="calam" value="@Model.cnInfo.calam" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <lable class="col-sm-3 col-form-label">bandangki</lable>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="bandangki" value="@Model.cnInfo.bandangki" />
+        </div>
+    </div>
+    
+
+    @if (Model.successMessage.Length > 0)
+    {
+        <div class="row mb-3">
+            <div class="col sm-9">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>@Model.successMessage</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" arira-lable="Close"></button>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/Models" role="button">Cancel</a>
+        </div>
+    </div>
+</form>

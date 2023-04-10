@@ -1,0 +1,24 @@
+﻿@page
+
+@using System.Data.SqlClient;
+@{
+    String id = Request.Query["congnhan"];
+    try
+    {
+        String connectString = "Data Source=DESKTOP-KMNS09Q;Initial Catalog=CongNhan;User ID=sa;Password=12345";
+        SqlConnection connection = new SqlConnection(connectString);
+        connection.Open();
+
+        String sql = "Delete from CongNhan where congnhan = @id";
+        SqlCommand command = new SqlCommand(sql, connection);
+        command.Parameters.AddWithValue("@id", id);
+
+        command.ExecuteReader();
+    }
+    catch (Exception ex)
+    {
+        
+    }
+
+    Response.Redirect("/Models/Index");
+}

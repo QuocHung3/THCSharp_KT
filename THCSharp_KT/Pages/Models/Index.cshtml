@@ -1,0 +1,33 @@
+﻿@page
+@model THCSharp_KT.Pages.Models.IndexModel
+
+<br>
+<h2>List of CongNhan</h2>
+<a class="btn btn-primary btn-sm" href="/Models/Create">New CongNhan</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>CongNhan</th>
+            <th>CaLam</th>
+            <th>BanDangKi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (!Model.listCN.Any())
+        {
+            <h3>List is empty! @Model.listCN.Count</h3>
+        }
+        @foreach (var item in Model.listCN)
+        {
+            <tr>
+                <th>@item.congnhan</th>
+                <th>@item.calam</th>
+                <th>@item.bandangki</th>
+                <th>
+                    <a class="btn btn-primary btn-sm" href="/Models/Edit?congnhan=@item.congnhan">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/Models/Delete?congnhan=@item.congnhan">Delete</a>
+                </th>
+            </tr>
+        }
+    </tbody>
+</table>
